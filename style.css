@@ -1,0 +1,49 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --yangColor: #d8c21e;
+  --yinColor: #111111;
+  --shadow: rgba(0, 0, 0, .3);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--yinColor);
+  width: 100%;
+  height: 100vh;
+}
+
+.shape {
+  width: 250px;
+  height: 250px;
+  border: 1px solid var(--yangColor);
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, 0);
+  border-radius: 5px;
+  box-shadow: 0 25px 30px var(--shadow);
+  overflow: hidden;
+}
+
+.shape::before {
+  content: '';
+  width: 150%;
+  height: 150%;
+  position: absolute;
+  background: conic-gradient(#fd084c, #fe9800, #fff020, #3edf4b, #3363ff, #b102b7, #fd084c);
+  top: -25%;
+  left: -25%;
+  animation: spin 1.5s infinite linear;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
