@@ -8,6 +8,12 @@
   --yangColor: #d8c21e;
   --yinColor: #111111;
   --shadow: rgba(0, 0, 0, .3);
+  --color1: #fd084c;
+  --color2: #fe9800;
+  --color3: #fff020;
+  --color4: #3edf4b;
+  --color5: #3363ff;
+  --color6: #b102b7;
 }
 
 body {
@@ -17,28 +23,72 @@ body {
   background-color: var(--yinColor);
   width: 100%;
   height: 100vh;
+  overflow: hidden auto;
+}
+
+.canvas {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: inherit;
+  height: inherit;
+}
+
+.shape-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
 }
 
 .shape {
+  position: relative;
   width: 250px;
   height: 250px;
-  border: 1px solid var(--yangColor);
-  top: 50%;
-  left: 50%;
-  transform: translate(-40%, 0);
-  border-radius: 5px;
+  border: none;
   box-shadow: 0 25px 30px var(--shadow);
   overflow: hidden;
+  padding: 20px;
 }
 
 .shape::before {
+  position: absolute;
   content: '';
   width: 150%;
   height: 150%;
-  position: absolute;
-  background: conic-gradient(#fd084c, #fe9800, #fff020, #3edf4b, #3363ff, #b102b7, #fd084c);
   top: -25%;
   left: -25%;
+}
+
+.square {}
+
+.square-outline::after {
+  position: absolute;
+  background-color: var(--shadow);
+  height: 93%;
+  width: 93%;
+  top: 3.5%;
+  left: 3.5%;
+  z-index: 1;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.circle-outline {}
+
+.rainbow::before {
+  content: '';
+  background: conic-gradient(
+    var(--color1),
+    var(--color2),
+    var(--color3),
+    var(--color4),
+    var(--color5),
+    var(--color6),
+    var(--color1)
+  );
   animation: spin 1.5s infinite linear;
 }
 
