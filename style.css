@@ -41,6 +41,20 @@ body {
   height: 100%;
 }
 
+.outlined {
+  position: relative;
+}
+
+.outlined::after {
+  content: '';
+  position: absolute;
+  background-color: var(--yinColor);
+  height: 93%;
+  width: 93%;
+  top: 3.5%;
+  left: 3.5%;
+}
+
 .shape {
   position: relative;
   width: 250px;
@@ -60,23 +74,17 @@ body {
   left: -25%;
 }
 
-.square {}
-
-.square-outline::after {
-  position: absolute;
-  background-color: var(--shadow);
-  height: 93%;
-  width: 93%;
-  top: 3.5%;
-  left: 3.5%;
-  z-index: 1;
+.square {
+  border-radius: inherit;
 }
 
 .circle {
   border-radius: 50%;
 }
 
-.circle-outline {}
+.circle-outline::after {
+  border-radius: 50%;
+}
 
 .rainbow::before {
   content: '';
